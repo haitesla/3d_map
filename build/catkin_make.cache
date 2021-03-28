@@ -1,0 +1,2 @@
+laserpc:loam_continuous:mpu6050
+-DCATKIN_DEVEL_PREFIX=/home/haitesla/Desktop/workspace/devel -DCMAKE_INSTALL_PREFIX=/home/haitesla/Desktop/workspace/install -G Unix Makefiles
