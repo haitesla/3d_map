@@ -1,4 +1,8 @@
 <launch>
+  <node pkg="laser_filters" type="scan_to_scan_filter_chain" name="laser_filter" output="screen" >
+    <rosparam command="load" file="$(find mpu6050)/config/scan_data_filter.yaml" />
+  </node>
+
   <node pkg="mpu6050" type="imu" name="imu" required="true">
     <param name="port" value="/dev/ttyACM0" />
     <param name="broadcast_tf" value="false" />
@@ -9,5 +13,5 @@
 
   <!-- <node pkg="rviz" type="rviz" name="rviz" args="-d $(find mpu6050)/rviz/demo.rviz" required="true"/> -->
   <!-- <node pkg="laserpc" type="laserpc.py" name="laserpc" required="true"/> -->
-  <!-- <node pkg="tf" type="static_transform_publisher" name="camera_broadcaster" args="0 0 0 0 0 0 1 base_footprint camera 100" /> -->
+  <node pkg="tf" type="static_transform_publisher" name="camera_broadcaster" args="0 0 0 0 0 0 1 base_footprint laser 100" />
 </launch>
